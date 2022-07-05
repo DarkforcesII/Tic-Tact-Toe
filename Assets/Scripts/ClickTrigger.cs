@@ -12,7 +12,7 @@ public class ClickTrigger : MonoBehaviour
 	private int _myCoordY = 0;
 
 	[SerializeField]
-	private bool canClick = false;
+	public bool canClick = false;
 
 	private void Awake()
 	{
@@ -39,8 +39,29 @@ public class ClickTrigger : MonoBehaviour
 	{
 		if(canClick == true){
 			_ai.PlayerSelects(_myCoordX, _myCoordY);
-			//_ai.xCoordinates.Remove(_myCoordX);
-			//_ai.yCoordinates.Remove(_myCoordY);
+			canClick = false;
 		}
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+		// left quadrant from top to bottom
+        #region
+        if (other.tag.Equals("Player") && _myCoordX.Equals(0) && _myCoordY.Equals(0))
+        {
+			DataManager.Instance.leftQuadrantCounter++;
+			print(DataManager.Instance.leftQuadrantCounter);
+        }
+		if (other.tag.Equals("Player") && _myCoordX.Equals(1) && _myCoordY.Equals(0))
+		{
+			DataManager.Instance.leftQuadrantCounter++;
+			print(DataManager.Instance.leftQuadrantCounter);
+		}
+		if (other.tag.Equals("Player") && _myCoordX.Equals(2) && _myCoordY.Equals(0))
+		{
+			DataManager.Instance.leftQuadrantCounter++;
+			print(DataManager.Instance.leftQuadrantCounter);
+		}
+        #endregion
+    }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -36,8 +35,7 @@ public class TicTacToeAI : MonoBehaviour
 
 	public UnityEvent onGameStarted;
 
-	public List<int> xCoordinates = new List<int>() { 0, 1, 2 };
-	public List<int> yCoordinates = new List<int>() { 0, 1, 2 };
+	public EndMessage message;
 
 	//Call This event with the player number to denote the winner
 	public WinnerEvent onPlayerWin;
@@ -74,16 +72,7 @@ public class TicTacToeAI : MonoBehaviour
 	}
 
 	public void AiSelects(int coordX, int coordY){
-		//coordX = UnityEngine.Random.Range(0, xCoordinates.Count);
-		//coordY = UnityEngine.Random.Range(0, yCoordinates.Count);
 		SetVisual(coordX, coordY, aiState);
-	}
-
-	public IEnumerator AI(int coordX, int coordY, float time)
-    {
-		yield return new WaitForSeconds(time);
-		SetVisual(coordX, coordY, aiState);
-
 	}
 
 	private void SetVisual(int coordX, int coordY, TicTacToeState targetState)
@@ -100,7 +89,23 @@ public class TicTacToeAI : MonoBehaviour
     {
         if (_isPlayerTurn.Equals(false))
         {
-			AiSelects(UnityEngine.Random.Range(0, xCoordinates.Count), UnityEngine.Random.Range(0, yCoordinates.Count));
+			for (int i = 0; i < _triggers.Length; i++)
+            {
+				int x = Random.Range(0, 3);
+				int y = Random.Range(0, 3);
+				if (_triggers[x,y].canClick.Equals(true))
+                {
+					_triggers[x, y].canClick = false;
+					Debug.Log(i);
+					AiSelects(x, y);
+					break;
+				}
+            }
+        }
+
+		if (DataManager.Instance.leftQuadrantCounter.Equals(3))
+        {
+			onPlayerWin.Invoke(2);
         }
     }
 }
