@@ -8,7 +8,6 @@ public class GamePiece : MonoBehaviour{
 	[SerializeField]
 	AnimationCurve _growthCurve;
 
-	public int playerWinCounter = 0;
 	public int aiWinCounter = 0;
 
 	private void OnEnable()
@@ -23,32 +22,4 @@ public class GamePiece : MonoBehaviour{
 			transform.localScale = Vector3.one * _growthCurve.Evaluate( t/_animTime);
 		}
 	}
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
-        {
-			playerWinCounter++;
-			print(playerWinCounter++);
-			if (playerWinCounter.Equals(3))
-            {
-				print("player wins");
-            }
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-		if (collision.gameObject.tag == "Player")
-		{
-			playerWinCounter++;
-			print(playerWinCounter++);
-			if (playerWinCounter.Equals(3))
-			{
-				print("player wins");
-			}
-		}
-	}
-
-
 }
