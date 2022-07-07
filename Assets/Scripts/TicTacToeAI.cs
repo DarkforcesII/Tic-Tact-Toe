@@ -82,13 +82,15 @@ public class TicTacToeAI : MonoBehaviour
 			_triggers[coordX, coordY].transform.position,
 			Quaternion.identity
 		);
-		_isPlayerTurn = !_isPlayerTurn;
+		//_isPlayerTurn = !_isPlayerTurn;
 	}
 
     private void Update()
     {
+		/*
         if (_isPlayerTurn.Equals(false))
         {
+			
 			for (int i = 0; i < _triggers.Length; i++)
             {
 				int x = Random.Range(0, 3);
@@ -101,11 +103,78 @@ public class TicTacToeAI : MonoBehaviour
 					break;
 				}
             }
-        }
+        }*/
 
-		if (DataManager.Instance.leftQuadrantCounter.Equals(3))
+		// for player win conditions
+        #region
+        if (DataManager.Instance.leftVerticalQuadrantCounter.Equals(3))
         {
-			onPlayerWin.Invoke(2);
+			onPlayerWin.Invoke(0);
         }
-    }
+		if (DataManager.Instance.middleVerticalQuadrantCounter.Equals(3))
+		{
+			onPlayerWin.Invoke(0);
+		}
+		if (DataManager.Instance.rightVerticalQuadrantCounter.Equals(3))
+		{
+			onPlayerWin.Invoke(0);
+		}
+		if (DataManager.Instance.topHorizontalQuadrantCounter.Equals(3))
+		{
+			onPlayerWin.Invoke(0);
+		}
+		if (DataManager.Instance.middleHorizontalQuadrantCounter.Equals(3))
+		{
+			onPlayerWin.Invoke(0);
+		}
+		if (DataManager.Instance.bottomHorizontalQuadrantCounter.Equals(3))
+		{
+			onPlayerWin.Invoke(0);
+		}
+		if (DataManager.Instance.diagonalQuadrant1Counter.Equals(3))
+		{
+			onPlayerWin.Invoke(0);
+		}
+		if (DataManager.Instance.diagonalQuadrant2Counter.Equals(3))
+		{
+			onPlayerWin.Invoke(0);
+		}
+		#endregion
+
+		// for ai win conditions
+		#region
+		if (DataManager.Instance.aiLeftVerticalQuadrantCounter.Equals(3))
+		{
+			onPlayerWin.Invoke(1);
+		}
+		if (DataManager.Instance.aiMiddleVerticalQuadrantCounter.Equals(3))
+		{
+			onPlayerWin.Invoke(1);
+		}
+		if (DataManager.Instance.aiRightVerticalQuadrantCounter.Equals(3))
+		{
+			onPlayerWin.Invoke(1);
+		}
+		if (DataManager.Instance.aiTopHorizontalQuadrantCounter.Equals(3))
+		{
+			onPlayerWin.Invoke(1);
+		}
+		if (DataManager.Instance.aiMiddleHorizontalQuadrantCounter.Equals(3))
+		{
+			onPlayerWin.Invoke(1);
+		}
+		if (DataManager.Instance.aiBottomHorizontalQuadrantCounter.Equals(3))
+		{
+			onPlayerWin.Invoke(1);
+		}
+		if (DataManager.Instance.aiDiagonalQuadrant1Counter.Equals(3))
+		{
+			onPlayerWin.Invoke(1);
+		}
+		if (DataManager.Instance.aiDiagonalQuadrant2Counter.Equals(3))
+		{
+			onPlayerWin.Invoke(1);
+		}
+		#endregion
+	}
 }

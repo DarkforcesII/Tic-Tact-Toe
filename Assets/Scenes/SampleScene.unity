@@ -2867,8 +2867,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  xCoordinates: 000000000100000002000000
-  yCoordinates: 000000000100000002000000
   message: {fileID: 1935952292}
   onPlayerWin:
     m_PersistentCalls:
