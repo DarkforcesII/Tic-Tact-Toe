@@ -64,4 +64,9 @@ public class DataManager : MonoBehaviour
     public int aiDiagonalQuadrant1Counter = 0;
     public int aiDiagonalQuadrant2Counter = 0;
     #endregion
+
+    // tracks all spaces to determine a tie
+    #region
+    public int tieConditionCounter = 0;
+    #endregion
 }

@@ -52,17 +52,20 @@ public class ClickTrigger : MonoBehaviour
 			DataManager.Instance.leftVerticalQuadrantCounter++;
 			DataManager.Instance.topHorizontalQuadrantCounter++;
 			DataManager.Instance.diagonalQuadrant1Counter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		if (other.tag.Equals("Player") && _myCoordX.Equals(1) && _myCoordY.Equals(0))
 		{
 			DataManager.Instance.leftVerticalQuadrantCounter++;
 			DataManager.Instance.middleHorizontalQuadrantCounter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		if (other.tag.Equals("Player") && _myCoordX.Equals(2) && _myCoordY.Equals(0))
 		{
 			DataManager.Instance.leftVerticalQuadrantCounter++;
 			DataManager.Instance.bottomHorizontalQuadrantCounter++;
 			DataManager.Instance.diagonalQuadrant2Counter++;
+			DataManager.Instance.tieConditionCounter++;
 
 		}
 		#endregion
@@ -73,6 +76,7 @@ public class ClickTrigger : MonoBehaviour
 		{
 			DataManager.Instance.middleVerticalQuadrantCounter++;
 			DataManager.Instance.topHorizontalQuadrantCounter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		if (other.tag.Equals("Player") && _myCoordX.Equals(1) && _myCoordY.Equals(1))
 		{
@@ -80,11 +84,13 @@ public class ClickTrigger : MonoBehaviour
 			DataManager.Instance.middleHorizontalQuadrantCounter++;
 			DataManager.Instance.diagonalQuadrant1Counter++;
 			DataManager.Instance.diagonalQuadrant2Counter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		if (other.tag.Equals("Player") && _myCoordX.Equals(2) && _myCoordY.Equals(1))
 		{
 			DataManager.Instance.middleVerticalQuadrantCounter++;
 			DataManager.Instance.bottomHorizontalQuadrantCounter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		#endregion
 
@@ -95,27 +101,20 @@ public class ClickTrigger : MonoBehaviour
 			DataManager.Instance.rightVerticalQuadrantCounter++;
 			DataManager.Instance.diagonalQuadrant2Counter++;
 			DataManager.Instance.topHorizontalQuadrantCounter++;
-			DataManager.Instance.middleHorizontalQuadrantCounter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		if (other.tag.Equals("Player") && _myCoordX.Equals(1) && _myCoordY.Equals(2))
 		{
 			DataManager.Instance.rightVerticalQuadrantCounter++;
 			DataManager.Instance.middleHorizontalQuadrantCounter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		if (other.tag.Equals("Player") && _myCoordX.Equals(2) && _myCoordY.Equals(2))
 		{
 			DataManager.Instance.rightVerticalQuadrantCounter++;
 			DataManager.Instance.bottomHorizontalQuadrantCounter++;
 			DataManager.Instance.diagonalQuadrant1Counter++;
-		}
-		#endregion
-
-		// top horizontal quadrant for player
-		#region
-		if (other.tag.Equals("Player") && _myCoordX.Equals(0) && _myCoordY.Equals(2))
-		{
-			//DataManager.Instance.topHorizontalQuadrantCounter++;
-			//DataManager.Instance.middleHorizontalQuadrantCounter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		#endregion
 
@@ -126,11 +125,13 @@ public class ClickTrigger : MonoBehaviour
 			DataManager.Instance.aiLeftVerticalQuadrantCounter++;
 			DataManager.Instance.aiTopHorizontalQuadrantCounter++;
 			DataManager.Instance.aiDiagonalQuadrant1Counter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		if (other.tag.Equals("AI") && _myCoordX.Equals(1) && _myCoordY.Equals(0))
 		{
 			DataManager.Instance.aiLeftVerticalQuadrantCounter++;
 			DataManager.Instance.aiMiddleHorizontalQuadrantCounter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		if (other.tag.Equals("AI") && _myCoordX.Equals(2) && _myCoordY.Equals(0))
 		{
@@ -140,6 +141,7 @@ public class ClickTrigger : MonoBehaviour
 			print(DataManager.Instance.aiLeftVerticalQuadrantCounter);
 			print(DataManager.Instance.aiBottomHorizontalQuadrantCounter);
 			print(DataManager.Instance.aiDiagonalQuadrant2Counter);
+			DataManager.Instance.tieConditionCounter++;
 
 		}
 		#endregion
@@ -150,6 +152,7 @@ public class ClickTrigger : MonoBehaviour
 		{
 			DataManager.Instance.aiMiddleVerticalQuadrantCounter++;
 			DataManager.Instance.aiTopHorizontalQuadrantCounter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		if (other.tag.Equals("AI") && _myCoordX.Equals(1) && _myCoordY.Equals(1))
 		{
@@ -157,11 +160,13 @@ public class ClickTrigger : MonoBehaviour
 			DataManager.Instance.aiMiddleHorizontalQuadrantCounter++;
 			DataManager.Instance.aiDiagonalQuadrant1Counter++;
 			DataManager.Instance.aiDiagonalQuadrant2Counter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		if (other.tag.Equals("AI") && _myCoordX.Equals(2) && _myCoordY.Equals(1))
 		{
 			DataManager.Instance.aiMiddleVerticalQuadrantCounter++;
 			DataManager.Instance.aiBottomHorizontalQuadrantCounter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		#endregion
 
@@ -172,29 +177,20 @@ public class ClickTrigger : MonoBehaviour
 			DataManager.Instance.aiRightVerticalQuadrantCounter++;
 			DataManager.Instance.aiDiagonalQuadrant2Counter++;
 			DataManager.Instance.aiTopHorizontalQuadrantCounter++;
-			DataManager.Instance.aiMiddleHorizontalQuadrantCounter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		if (other.tag.Equals("AI") && _myCoordX.Equals(1) && _myCoordY.Equals(2))
 		{
 			DataManager.Instance.aiRightVerticalQuadrantCounter++;
 			DataManager.Instance.aiMiddleHorizontalQuadrantCounter++;
+			DataManager.Instance.tieConditionCounter++;
 		}
 		if (other.tag.Equals("AI") && _myCoordX.Equals(2) && _myCoordY.Equals(2))
 		{
 			DataManager.Instance.aiRightVerticalQuadrantCounter++;
 			DataManager.Instance.aiBottomHorizontalQuadrantCounter++;
 			DataManager.Instance.aiDiagonalQuadrant1Counter++;
-		}
-		#endregion
-
-		// top horizontal quadrant for ai
-		#region
-		if (other.tag.Equals("AI") && _myCoordX.Equals(0) && _myCoordY.Equals(2))
-		{
-			//DataManager.Instance.aiTopHorizontalQuadrantCounter++;
-			//DataManager.Instance.aiMiddleHorizontalQuadrantCounter++;
-			//print(DataManager.Instance.aiTopHorizontalQuadrantCounter);
-			//print(DataManager.Instance.aiMiddleHorizontalQuadrantCounter);
+			DataManager.Instance.tieConditionCounter++;
 		}
 		#endregion
 	}
