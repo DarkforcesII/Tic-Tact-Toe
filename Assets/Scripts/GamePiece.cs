@@ -8,8 +8,6 @@ public class GamePiece : MonoBehaviour{
 	[SerializeField]
 	AnimationCurve _growthCurve;
 
-	public int aiWinCounter = 0;
-
 	private void OnEnable()
 	{
 		StartCoroutine(SpawnRoutine());
