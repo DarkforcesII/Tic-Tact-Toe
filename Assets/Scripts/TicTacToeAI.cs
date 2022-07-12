@@ -48,8 +48,11 @@ public class TicTacToeAI : MonoBehaviour
 
     private int x, y;
     private int randomChanceCounter = 0;
-	
-	private void Awake()
+
+    [SerializeField]
+    private int[] numbers;
+
+    private void Awake()
 	{
 		if(onPlayerWin == null){
 			onPlayerWin = new WinnerEvent();
@@ -73,69 +76,42 @@ public class TicTacToeAI : MonoBehaviour
 	}
 
 	public void PlayerSelects(int coordX, int coordY){
-
-		SetVisual(coordX, coordY, playerState);
-	}
+        //if (_count != 0)
+        //{
+        //    _isPlayerTurn = !_isPlayerTurn;
+        //}
+        SetVisual(coordX, coordY, playerState);
+    }
 
 	public void AiSelects(int coordX, int coordY){
-		SetVisual(coordX, coordY, aiState);
+        //if (_count != 0)
+        //{
+        //    _isPlayerTurn = !_isPlayerTurn;
+        //}
+        SetVisual(coordX, coordY, aiState);
 	}
 
 	private void SetVisual(int coordX, int coordY, TicTacToeState targetState)
 	{
-		Instantiate(
+        _isPlayerTurn = !_isPlayerTurn;
+        Instantiate(
 			targetState == TicTacToeState.circle ? _oPrefab : _xPrefab,
 			_triggers[coordX, coordY].transform.position,
 			Quaternion.identity
 		);
-        if (_count != 0)
-        {
-            _isPlayerTurn = !_isPlayerTurn;
-        }
-	}
+    }
 
     private void AIMoveset()
     {
+        // to do
+        // set random range if ai level is easy
+        // and set to 1 if ai level is hard
         if (_isPlayerTurn.Equals(false))
         {
-            randomChanceCounter = 1;
-            if (randomChanceCounter.Equals(1))
-            {
-                x = 0;
-                y = 0;
 
-                /*
-                if (_triggers[x, y].canClick.Equals(true))
-                {
-                    _triggers[x, y].canClick = false;
-                    AiSelects(x, y);
-                    print("blocked");
-                }
-                else if (_triggers[x + 1, y].canClick.Equals(true))
-                {
-                    _triggers[x + 1, y].canClick = false;
-                    AiSelects(x + 1, y);
-                    print("blocked");
-                }
-                else if (_triggers[x + 2, y].canClick.Equals(true))
-                {
-                    _triggers[x + 2, y].canClick = false;
-                    AiSelects(x + 2, y);
-                    print("blocked");
-                }*/
-                
-                for (int i = 0; i < 3; i++)
-                {
-                    if (_triggers[x + i, y].canClick.Equals(true) && DataManager.Instance.leftVerticalQuadrantCounter.Equals(2))
-                    {
-                        _triggers[x + i, y].canClick = false;
-                        AiSelects(x + i, y);
-                        print("blocked");
-                        break;
-                    }
-                }
-
-            }
+            // garbage
+            #region
+            /*
             else if (DataManager.Instance.middleVerticalQuadrantCounter.Equals(2))
             {
                 randomChanceCounter = 1;
@@ -163,7 +139,7 @@ public class TicTacToeAI : MonoBehaviour
                         print("blocked");
                     }
 
-                    /*
+                    
                     for (int i = 0; i < 3; i++)
                     {
                         if (_triggers[x + i, y].canClick.Equals(true))
@@ -173,7 +149,7 @@ public class TicTacToeAI : MonoBehaviour
                             print("blocked");
                             break;
                         }
-                    }*/
+                    }
                 }
                 else
                 {
@@ -190,7 +166,9 @@ public class TicTacToeAI : MonoBehaviour
                         }
                     }
                 }
-            }
+            }*/
+
+            /*
             else if (DataManager.Instance.rightVerticalQuadrantCounter.Equals(2))
             {
 
@@ -219,7 +197,7 @@ public class TicTacToeAI : MonoBehaviour
                         print("blocked");
                     }
 
-                    /*
+                    
                     for (int i = 0; i < 3; i++)
                     {
                         if (_triggers[x + i, y].canClick.Equals(true))
@@ -229,7 +207,7 @@ public class TicTacToeAI : MonoBehaviour
                             print("blocked");
                             break;
                         }
-                    }*/
+                    }
                 }
                 else
                 {
@@ -246,7 +224,9 @@ public class TicTacToeAI : MonoBehaviour
                         }
                     }
                 }
-            }
+            }*/
+
+            /*
             else if (DataManager.Instance.topHorizontalQuadrantCounter.Equals(2))
             {
                 randomChanceCounter = 1;
@@ -273,7 +253,7 @@ public class TicTacToeAI : MonoBehaviour
                         AiSelects(x, y + 2);
                         print("blocked");
                     }
-                    /*
+                    
                     for (int i = 0; i < 3; i++)
                     {
                         if (_triggers[x, y + i].canClick.Equals(true))
@@ -283,7 +263,7 @@ public class TicTacToeAI : MonoBehaviour
                             print("blocked");
                             break;
                         }
-                    }*/
+                    }
                 }
                 else
                 {
@@ -300,7 +280,9 @@ public class TicTacToeAI : MonoBehaviour
                         }
                     }
                 }
-            }
+            }*/
+
+            /*
             else if (DataManager.Instance.middleHorizontalQuadrantCounter.Equals(2))
             {
                 randomChanceCounter = 1;
@@ -327,7 +309,7 @@ public class TicTacToeAI : MonoBehaviour
                         AiSelects(x, y + 2);
                         print("blocked");
                     }
-                    /*
+                    
                     for (int i = 0; i < 3; i++)
                     {
                         if (_triggers[x, y + i].canClick.Equals(true))
@@ -337,7 +319,7 @@ public class TicTacToeAI : MonoBehaviour
                             print("blocked");
                             break;
                         }
-                    }*/
+                    }
                 }
                 else
                 {
@@ -354,7 +336,9 @@ public class TicTacToeAI : MonoBehaviour
                         }
                     }
                 }
-            }
+            }*/
+
+            /*
             else if (DataManager.Instance.bottomHorizontalQuadrantCounter.Equals(2))
             {
                 randomChanceCounter = 1;
@@ -381,7 +365,7 @@ public class TicTacToeAI : MonoBehaviour
                         AiSelects(x, y + 2);
                         print("blocked");
                     }
-                    /*
+                    
                     for (int i = 0; i < 3; i++)
                     {
                         if (_triggers[x, y + i].canClick.Equals(true))
@@ -391,7 +375,7 @@ public class TicTacToeAI : MonoBehaviour
                             print("blocked");
                             break;
                         }
-                    }*/
+                    }
                 }
                 else
                 {
@@ -408,8 +392,10 @@ public class TicTacToeAI : MonoBehaviour
                         }
                     }
                 }
-            }
-            
+            }*/
+
+
+            /*
             else if (DataManager.Instance.diagonalQuadrant1Counter.Equals(2))
             {
                 randomChanceCounter = 1;
@@ -436,7 +422,7 @@ public class TicTacToeAI : MonoBehaviour
                         AiSelects(x + 2, y + 2);
                         print("blocked");
                     }
-                    /*
+                    
                     for (int i = 0; i < 3; i++)
                     {
                         if (_triggers[x + i, y + i].canClick.Equals(true))
@@ -446,7 +432,7 @@ public class TicTacToeAI : MonoBehaviour
                             print("blocked");
                             break;
                         }
-                    }*/
+                    }
                 }
                 else
                 {
@@ -463,11 +449,11 @@ public class TicTacToeAI : MonoBehaviour
                         }
                     }
                 }
-            }
-            
+            }*/
+
+            /*
             else if (DataManager.Instance.diagonalQuadrant2Counter.Equals(2))
             {
-
                 randomChanceCounter = 1;
                 if (randomChanceCounter.Equals(1))
                 {
@@ -492,7 +478,7 @@ public class TicTacToeAI : MonoBehaviour
                         AiSelects(x, y - 2);
                         print("blocked");
                     }
-                    /*
+                    
                     for (int i = 0; i < 3; i++)
                     {
                         if (_triggers[x + i, y - i].canClick.Equals(true))
@@ -502,7 +488,7 @@ public class TicTacToeAI : MonoBehaviour
                             print("blocked");
                             break;
                         }
-                    }*/
+                    }
                 }
                 else
                 {
@@ -534,8 +520,14 @@ public class TicTacToeAI : MonoBehaviour
                         break;
                     }
                 }
-            }
+            }*/
+            #endregion
         }
+        randomChanceCounter = 1;
+        print(randomChanceCounter);
+
+        
+
     }
 
     private void PlayerWinConditions()
@@ -646,12 +638,177 @@ public class TicTacToeAI : MonoBehaviour
     private void Update()
     {
         // will give ai 50/50 chance of blocking player from winning
-        AIMoveset();
+        if (_isPlayerTurn.Equals(false))
+        {
+            //AIMoveset();
+        }
 
         // for player win conditions
         PlayerWinConditions();
 
         // for ai win conditions
         AIWinConditions();
+
+        //updating every frame so that each counter would be accurately tracked
+        #region
+        numbers[0] = DataManager.Instance.leftVerticalQuadrantCounter;
+        numbers[1] = DataManager.Instance.middleVerticalQuadrantCounter;
+        numbers[2] = DataManager.Instance.rightVerticalQuadrantCounter;
+        numbers[3] = DataManager.Instance.topHorizontalQuadrantCounter;
+        numbers[4] = DataManager.Instance.middleHorizontalQuadrantCounter;
+        numbers[5] = DataManager.Instance.bottomHorizontalQuadrantCounter;
+        numbers[6] = DataManager.Instance.diagonalQuadrant1Counter;
+        numbers[7] = DataManager.Instance.diagonalQuadrant2Counter;
+        #endregion
+
+        #region
+        //if (DataManager.Instance.leftVerticalQuadrantCounter.Equals(2))
+        //{
+        //    x = 0;
+        //    y = 0;
+        //    DataManager.Instance.leftVerticalQuadrantCounter = 0;
+
+        //    for (int i = 0; i < 3; i++)
+        //    {
+
+        //        if (_triggers[x + i, y].canClick.Equals(true))
+        //        {
+        //            _triggers[x + i, y].canClick = false;
+        //            AiSelects(x + i, y);
+        //            print("blocked");
+        //            print(x + i);
+        //            print(y);
+        //            break;
+        //        }
+        //    }
+        //}
+        //else if (numbers[1].Equals(2))
+        //{
+        //    x = 0;
+        //    y = 1;
+        //    DataManager.Instance.middleVerticalQuadrantCounter = 0;
+
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        if (_triggers[x + i, y].canClick.Equals(true))
+        //        {
+        //            _triggers[x + i, y].canClick = false;
+        //            AiSelects(x + i, y);
+        //            print("blocked");
+        //            break;
+        //        }
+        //    }
+        //}
+
+
+        //else if (numbers[2].Equals(2))
+        //{
+        //    x = 0;
+        //    y = 1;
+        //    DataManager.Instance.rightVerticalQuadrantCounter = 0;
+
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        if (_triggers[x + i, y].canClick.Equals(true))
+        //        {
+        //            _triggers[x + i, y].canClick = false;
+        //            AiSelects(x + i, y);
+        //            print("blocked");
+        //            break;
+        //        }
+        //    }
+        //}
+
+        //else if (numbers[3].Equals(2))
+        //{
+        //    x = 0;
+        //    y = 0;
+        //    DataManager.Instance.topHorizontalQuadrantCounter = 0;
+
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        if (_triggers[x, y + i].canClick.Equals(true))
+        //        {
+        //            _triggers[x, y + i].canClick = false;
+        //            AiSelects(x, y + i);
+        //            print("blocked");
+        //            break;
+        //        }
+        //    }
+        //}
+
+        //else if (numbers[4].Equals(2))
+        //{
+        //    x = 1;
+        //    y = 0;
+        //    DataManager.Instance.middleHorizontalQuadrantCounter = 0;
+
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        if (_triggers[x, y + i].canClick.Equals(true))
+        //        {
+        //            _triggers[x, y + i].canClick = false;
+        //            AiSelects(x, y + i);
+        //            print("blocked");
+        //            break;
+        //        }
+        //    }
+        //}
+
+        //else if (numbers[5].Equals(2))
+        //{
+        //    x = 2;
+        //    y = 0;
+        //    DataManager.Instance.bottomHorizontalQuadrantCounter = 0;
+
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        if (_triggers[x, y + i].canClick.Equals(true))
+        //        {
+        //            _triggers[x, y + i].canClick = false;
+        //            AiSelects(x, y + i);
+        //            print("blocked");
+        //            break;
+        //        }
+        //    }
+        //}
+
+        //else if (numbers[6].Equals(2))
+        //{
+        //    x = 0;
+        //    y = 0;
+        //    DataManager.Instance.diagonalQuadrant1Counter = 0;
+
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        if (_triggers[x + i, y + i].canClick.Equals(true))
+        //        {
+        //            _triggers[x + i, y + i].canClick = false;
+        //            AiSelects(x + i, y + i);
+        //            print("blocked");
+        //            break;
+        //        }
+        //    }
+        //}
+
+        //else if (numbers[7].Equals(2))
+        //{
+        //    x = 0;
+        //    y = 2;
+        //    DataManager.Instance.diagonalQuadrant2Counter = 0;
+
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        if (_triggers[x + i, y - i].canClick.Equals(true))
+        //        {
+        //            _triggers[x + i, y - i].canClick = false;
+        //            AiSelects(x + i, y - i);
+        //            print("blocked");
+        //            break;
+        //        }
+        //    }
+        //}
+        #endregion
+
     }
 }
