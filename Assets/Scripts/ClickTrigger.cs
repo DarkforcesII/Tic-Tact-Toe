@@ -37,9 +37,14 @@ public class ClickTrigger : MonoBehaviour
 
 	private void OnMouseDown()
 	{
-		if(canClick == true){
-			_ai.PlayerSelects(_myCoordX, _myCoordY);
-			canClick = false;
+		// _references player turn bool
+		// otherwise player can select more than one cell in a single turn
+		if (_ai._isPlayerTurn.Equals(true)) {
+			if (canClick == true)
+			{
+				_ai.PlayerSelects(_myCoordX, _myCoordY);
+				canClick = false;
+			}
 		}
 	}
 
