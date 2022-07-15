@@ -58,14 +58,12 @@ public class ClickTrigger : MonoBehaviour
 			DataManager.Instance.topHorizontalQuadrantCounter++;
 			DataManager.Instance.diagonalQuadrant1Counter++;
 			DataManager.Instance.tieConditionCounter++;
-			print(DataManager.Instance.leftVerticalQuadrantCounter);
 		}
 		if (other.tag.Equals("Player") && _myCoordX.Equals(1) && _myCoordY.Equals(0))
 		{
 			DataManager.Instance.leftVerticalQuadrantCounter++;
 			DataManager.Instance.middleHorizontalQuadrantCounter++;
 			DataManager.Instance.tieConditionCounter++;
-			print(DataManager.Instance.leftVerticalQuadrantCounter);
 		}
 		if (other.tag.Equals("Player") && _myCoordX.Equals(2) && _myCoordY.Equals(0))
 		{
@@ -73,7 +71,6 @@ public class ClickTrigger : MonoBehaviour
 			DataManager.Instance.bottomHorizontalQuadrantCounter++;
 			DataManager.Instance.diagonalQuadrant2Counter++;
 			DataManager.Instance.tieConditionCounter++;
-			print(DataManager.Instance.leftVerticalQuadrantCounter);
 
 		}
 		#endregion
@@ -146,9 +143,6 @@ public class ClickTrigger : MonoBehaviour
 			DataManager.Instance.aiLeftVerticalQuadrantCounter++;
 			DataManager.Instance.aiBottomHorizontalQuadrantCounter++;
 			DataManager.Instance.aiDiagonalQuadrant2Counter++;
-			print(DataManager.Instance.aiLeftVerticalQuadrantCounter);
-			print(DataManager.Instance.aiBottomHorizontalQuadrantCounter);
-			print(DataManager.Instance.aiDiagonalQuadrant2Counter);
 			DataManager.Instance.tieConditionCounter++;
 
 		}
